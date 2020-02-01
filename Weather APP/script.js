@@ -20,18 +20,30 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
 
         })
         .then(response =>{
-           /* console.log(response);*/
+            const {temperature, summary, icon} = response.currently;
+
+          /* console.log(response);*/
             
             // we pull out the data for temperature, summary and timezone
              //setting DOM elements that has been assigned a variable from line 4-6
              //exact object properties can be checked on the console
-            temperatureDegree.textContent = response.currently.temperature;
-            temperatureDiscription.textContent = response.currently.summary;
+            temperatureDegree.textContent = temperature;
+            temperatureDiscription.textContent = summary;
             locationTimezone.textContent = response.timezone;
-        });
-        });
+            
+            setIcons(icon, document.querySelector(".icon"));
 
+        });
+        });
+    
        
+}
+// icon JS files were downloaded from same API site and included in the weather folder
+function setIcons(icon, iconID){
+    const skycons = new Skycons({ color:"white" });
+    const currentIcon = icon.replace(/-/g, "_").toUpperCase();
+    skycons.play();
+    return skycons.set(iconID, Skycons[currentIcon]);
 }
 
 });
