@@ -32,7 +32,7 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
           /* console.log(response);*/
             
             // we pull out the data for temperature, summary and timezone
-             //setting DOM elements that has been assigned a variable from line 4-6
+             //setting DOM elements that has been assigned a variable from line 6-8
              //exact object properties can be checked on the console
             temperatureDegree.textContent = temperature;
             temperatureDescription.textContent = summary;
