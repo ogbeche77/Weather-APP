@@ -3,7 +3,7 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
     let lat;
 
     //selecting the DOM
-    let temperatureDiscription = document.querySelector(".temperature-discription");
+    let temperatureDescription = document.querySelector(".temperature-discription");
     let temperatureDegree = document.querySelector(".temperature-degree");
     let locationTimezone = document.querySelector(".location-timezone");
     let temperatureE = document.querySelector(".temperature");
@@ -19,12 +19,14 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
             const api = `${proxy}https://api.darksky.net/forecast/f45fd163aefb3c633f0a30138a25fe5b/${lat},${long}`;
              //gets information from the above api url
         fetch(api)
-        //keyword response could be anything, data is converted to json as shown below
+        //keyword 'response' could be replaced with any word, response is converted to json as shown below
         .then(response => {
             return response.json();
 
         })
         .then(response =>{
+            // this can also be written as temperatureDegree.textContent =response.currently.temperature; (then the function can be discarded)
+            //temperatureDescription.textContent =response.currently.summary; etc
             const {temperature, summary, icon} = response.currently;
 
           /* console.log(response);*/
@@ -33,7 +35,7 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
              //setting DOM elements that has been assigned a variable from line 4-6
              //exact object properties can be checked on the console
             temperatureDegree.textContent = temperature;
-            temperatureDiscription.textContent = summary;
+            temperatureDescription.textContent = summary;
             locationTimezone.textContent = response.timezone;
             //convert fahrenheit to celcius
             let celcius = (temperature - 32) * (5/9);
