@@ -1,0 +1,3 @@
+function tobi (wea){
+    alert
+}
