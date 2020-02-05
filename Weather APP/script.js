@@ -61,7 +61,7 @@ window.addEventListener("load", ()=>{ // used to get location after page has loa
     
        
 }
-// icon JS files were downloaded from same API site and included in the weather folder
+// skycons.JS folder was downloaded from same API site and included in the weather folder
 function setIcons(icon, iconID){
     const skycons = new Skycons({ color:"white" });
     //this line is used to add the canvas as defined in the API page
